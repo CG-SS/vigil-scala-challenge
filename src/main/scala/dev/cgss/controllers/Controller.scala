@@ -1,11 +1,12 @@
 package dev.cgss.controllers
 
 import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.server.Route.seal
 import akka.http.scaladsl.server.{PathMatcher, Route}
 
 trait Controller {
 
-  def getRoute: Route = path(rootPathUrl / pathEnd)(getEndpoints)
+  def getRoute: Route = seal(path(rootPathUrl / pathEnd)(getEndpoints))
 
   protected def rootPathUrl: PathMatcher[Unit] = "api"
 
