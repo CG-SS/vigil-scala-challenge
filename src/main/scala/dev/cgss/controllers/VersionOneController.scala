@@ -1,9 +1,10 @@
 package dev.cgss.controllers
 
-import akka.http.scaladsl.model.Uri
+import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.server.PathMatcher
 
 trait VersionOneController extends Controller {
 
-  override protected def rootPathUrl: String = super.rootPathUrl + Uri./ +  "v1"
+  override protected def rootPathUrl: PathMatcher[Unit] = super.rootPathUrl /  "v1"
 
 }
