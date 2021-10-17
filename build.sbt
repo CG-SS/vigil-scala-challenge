@@ -10,6 +10,7 @@ val scalaLoggingVersion = "3.9.4"
 val logbackVersion = "1.2.6"
 val postgreSQLVersion = "42.2.24"
 val slickVersion = "3.3.3"
+val cryptoVersion = "2.0.1"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
@@ -19,5 +20,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.scala-logging" %% "scala-logging" % scalaLoggingVersion,
   "ch.qos.logback" % "logback-classic" % logbackVersion,
   "org.postgresql" % "postgresql" % postgreSQLVersion,
-  "com.typesafe.slick" %% "slick" % slickVersion
+  "com.typesafe.slick" %% "slick" % slickVersion,
+  "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
+  "com.evolutiongaming" %% "crypto" % cryptoVersion,
 )
