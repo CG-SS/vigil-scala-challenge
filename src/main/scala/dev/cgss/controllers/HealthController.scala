@@ -1,16 +1,17 @@
 package dev.cgss.controllers
 
-import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
-import akka.http.scaladsl.server.Directives.{complete, path}
-import akka.http.scaladsl.server.{Directives, Route}
+import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
+import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.server.Route
+import dev.cgss.models.HealthResponse
+import dev.cgss.models.HealthResponse.jsonFormat
 
-object HealthController extends Controller {
+object HealthController extends Controller with SprayJsonSupport {
 
-  override def getRoute: Route =
-    path("/health") {
-      Directives.get {
-        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Say hello to akka-http</h1>"))
-      }
+  override val getEndpoints: Route =
+    get {
+      complete(HealthResponse())
     }
 
+  override def pathEnd: String = "health"
 }
