@@ -22,7 +22,7 @@ import scala.util.{Failure, Success}
 object Main extends App with LazyLogging {
 
   implicit val system: ActorSystem[Nothing] = ActorSystem(Behaviors.empty, "Virgil")
-  // needed for the future flatMap/onComplete in the end
+
   implicit val executionContext: ExecutionContextExecutor = system.executionContext
 
   val bindingFuture = Http()

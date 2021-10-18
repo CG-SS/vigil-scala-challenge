@@ -1,12 +1,12 @@
 package dev.cgss.controllers
 
 import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.Route.seal
 import akka.http.scaladsl.server.{PathMatcher, Route}
+import dev.cgss.controllers.v1.UserCreationController
 
 trait Controller {
 
-  def getRoute: Route = seal(path(rootPathUrl / pathEnd)(getEndpoints))
+  def getRoute: Route = path(rootPathUrl / pathEnd)(getEndpoints)
 
   protected def rootPathUrl: PathMatcher[Unit] = "api"
 
@@ -19,6 +19,7 @@ trait Controller {
 object Controller {
 
   def getAllControllers: Seq[Controller] = Seq(
+    UserCreationController,
     HealthController,
   )
 
