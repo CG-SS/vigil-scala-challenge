@@ -2,7 +2,7 @@ package dev.cgss.controllers
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.{PathMatcher, Route}
-import dev.cgss.controllers.v1.UserCreationController
+import dev.cgss.controllers.v1.user.UserCreationController
 
 trait Controller {
 
