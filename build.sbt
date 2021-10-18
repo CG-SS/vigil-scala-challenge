@@ -22,5 +22,5 @@ libraryDependencies ++= Seq(
   "org.postgresql" % "postgresql" % postgreSQLVersion,
   "com.typesafe.slick" %% "slick" % slickVersion,
   "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
-  "com.evolutiongaming" %% "crypto" % cryptoVersion,
+  "com.evolutiongaming" %% "crypto" % cryptoVersion
 )
